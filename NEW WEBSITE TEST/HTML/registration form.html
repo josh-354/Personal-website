@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Themed Registration Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        form {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        form label {
+            font-size: 14px;
+            color: #b3b3b3;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: #007BFF;
+            background-color: #333;
+            outline: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        form button:active {
+            background-color: #003f7f;
+        }
+
+        form input::placeholder, form textarea::placeholder {
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="registrationForm">
+        <h2>Register Here</h2>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstNameInput" placeholder="Enter your first name" required>
+
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleNameInput" placeholder="Enter your middle name">
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastNameInput" placeholder="Enter your last name" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dobInput" required>
+
+        <label for="gender">Gender:</label>
+        <select id="genderInput" required>
+            <option value="" disabled selected>Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="aboutMe">About Me:</label>
+        <textarea id="aboutMeInput" rows="4" placeholder="Tell us about yourself..." required></textarea>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            // Get form values
+            const firstName = document.getElementById('firstNameInput').value;
+            const middleName = document.getElementById('middleNameInput').value;
+            const lastName = document.getElementById('lastNameInput').value;
+            const dob = document.getElementById('dobInput').value;
+            const gender = document.getElementById('genderInput').value;
+            const aboutMe = document.getElementById('aboutMeInput').value;
+
+            // Store data in localStorage
+            localStorage.setItem('firstName', firstName);
+            localStorage.setItem('middleName', middleName);
+            localStorage.setItem('lastName', lastName);
+            localStorage.setItem('dob', dob);
+            localStorage.setItem('gender', gender);
+            localStorage.setItem('aboutMe', aboutMe);
+
+            // Redirect to the portfolio page
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+
+</html>

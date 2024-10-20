@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="..//CSS/home.css">
+    <title>Portfolio Website</title>
+    <style>
+        form {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">BJ</a>
+
+        <nav>
+            <a href="#" class="active"> Home</a>
+            <a href="#">About me</a>
+        </nav>
+    </header>
+    
+    <!-- First Section -->
+    <section class="home">
+        <div class="home-img">
+            <img src="..//IMG/brylle.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span id="firstName">Brylle</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>Hello! my name is <span id="fullName">__________________</span> and I am <span id="age">_________</span> years old. I was born on <span id="dob">___________</span>, gender is <span id="gender">_________</span>, I love <span id="aboutMe">_______</span>.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/brylle-joshua-nacario-462730308/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/josh-354/test.git" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/joshuasadobo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn">tintin</a>
+        </div>
+    </section>
+
+    <script>
+        function updateProfile() {
+            // Get data from localStorage   //chatgpt AHAHAHHAHAHAHA
+            const firstName = localStorage.getItem('firstName');
+            const middleName = localStorage.getItem('middleName');
+            const lastName = localStorage.getItem('lastName');
+            const dob = localStorage.getItem('dob');
+            const gender = localStorage.getItem('gender');
+            const aboutMe = localStorage.getItem('aboutMe');
+
+            // Calculate age
+            if (dob) {
+                const birthDate = new Date(dob);  // NAHHH I NEED TO STUDY THIS JAVA SCRPIT
+                const age = new Date().getFullYear() - birthDate.getFullYear();
+                document.getElementById('age').textContent = age;
+            }
+
+            // Update the text in the HTML if the data is available
+            if (firstName && lastName) {
+                document.getElementById('firstName').textContent = firstName;
+                document.getElementById('fullName').textContent = firstName + ' ' + middleName + ' ' + lastName; //KALIBOGG NABAA ANIII
+            }
+            if (dob) document.getElementById('dob').textContent = dob;
+            if (gender) document.getElementById('gender').textContent = gender;
+            if (aboutMe) document.getElementById('aboutMe').textContent = aboutMe;
+        }
+
+        // Call the function when the page loads
+        window.onload = updateProfile; //WA KOY NASABTANNNNNNNNNNNNNNNNNN
+    </script>
+</body>
+
+</html>
